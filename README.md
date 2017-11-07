@@ -12,7 +12,8 @@ These types are intended as a drop-in replacement for `Float64` and `BigFloat`.
 Besides the basic arithmetic functions the following mathematical functions are defined:
 
 `sin`, `cos`, `inv`, `rem`, `divrem`, `mod`,
-`sqrt`, `exp`, `log`, `sin`, `cos`, `tan`,
+`square`, `cube`, `sqrt`, 
+`exp`, `log`, `sin`, `cos`, `tan`,
 `asin`, `acos`, `atan`, `atan2`,
 `sinh`, `cosh`, `sincos`, `sincosh`, `tanh`
 
