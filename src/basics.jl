@@ -67,3 +67,17 @@ Computes `s = fl(a*a)` and `e = err(a*a)`. Faster than [`two_prod(a, a)`](@ref).
     e = fma(a, a, -p)
     p, e
 end
+
+"""
+    two_cube(a)
+
+Computes `s = fl(a*a*a)` and `e = err(a*a*a)`. Faster than [`two_prod(a,two_prod(a, a))`].
+"""
+@inline function two_cube(a::Float64)
+    p0 = a * a
+    e0 = fma(a, a, -p0)
+    p = a * p0
+    e = fma(a, p0, -p)
+    e = e + a*e0
+    p, e
+end
