@@ -2,6 +2,7 @@ __precompile__()
 
 module HigherPrecision
 
+    export square, cube
 
     import Base: +, -, *, /, ^, <, ==, <=
 
