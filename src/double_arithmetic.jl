@@ -49,7 +49,7 @@ end
 
 
 #
-# SUBSTRACTION
+# SUBTRACTION
 #
 """
     double_sub(a::Float64, b::Float64)
@@ -293,6 +293,24 @@ end
         return 1.0 / y
     end
     y
+end
+
+"""
+    double_cube(x::Float64)
+Convert `x` to a DoubleFloat64 and then compute `x*x*x`.
+"""
+@inline function double_cube(a::Float64)
+    hi, lo = two_cube(a)
+    return FastDouble(hi, lo)
+end
+
+"""
+    cube(x::DoubleFloat64)
+Compute `x * x * x` in a more efficient way.
+"""
+@inline function cube(a::DoubleFloat64)
+    hi, lo = two_cube(a.hi)
+    return FastDouble(hi, lo)
 end
 
 ^(a::DoubleFloat64, p::Integer) = power_by_squaring(a, p)
